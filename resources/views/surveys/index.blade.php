@@ -42,7 +42,7 @@
 
     <div class="w-full md:w-1/3 bg-gray-50 p-4 border border-gray-300 rounded-lg shadow-sm">
         <h2 class="text-lg font-semibold text-black-500 mb-3">本日の最強ダラリスト👑</h2>
-        @if ($topSurvey)
+        @if ($topSurvey && $topSurvey->votes->count()>0)
             <div class="p-4 bg-white rounded-lg shadow-md">
                 <h3 class="text-xl font-bold text-yellow-900">
                     <span class="font-bold">{{ $topSurvey->user->name }}さん！</span>
