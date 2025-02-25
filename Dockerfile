@@ -27,6 +27,3 @@ WORKDIR /var/www
 
 # Laravelのファイルをコピー
 COPY . .
-
-# パーミッションの設定
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
