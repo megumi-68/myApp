@@ -5,7 +5,11 @@
     <h1 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">{{ $survey->title }}</h1>
     <p class="text-gray-700 dark:text-gray-300 mb-4">{{ $survey->description }}</p>
     <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">投稿者: {{ $survey->user->name }}</p>
-
+    @if (session('flash_message'))
+            <div class="flash_message bg-success text-center py-3 my-0">
+                {{ session('flash_message') }}
+            </div>
+    @endif
     <form method="POST" action="{{ route('votes.store', $survey) }}" class="mb-6">
         @csrf
         <textarea name="comment" placeholder="コメントを入力（任意）" class="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-white"></textarea>

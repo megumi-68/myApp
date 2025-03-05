@@ -21,6 +21,8 @@ class VoteController extends Controller
                 'survey_id' => $survey->id,
                 'comment' => $request->comment,
             ]);
+        } elseif (Vote::where('user_id', Auth::id())){
+            return back()->with('flash_message', '⚠️自分の投稿には賛成できません');
         }
 
         return back();
