@@ -4,10 +4,6 @@
 <div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg dark:bg-gray-800">
     <h1 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">過去の思いつき💭</h1>
 
-    @if(session('success'))
-        <p class="text-green-500">{{ session('success') }}</p>
-    @endif
-
     @if ($surveys->isEmpty())
         <p class="text-gray-700 dark:text-gray-300">まだ案を投稿していません。</p>
     @else
