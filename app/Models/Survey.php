@@ -12,7 +12,7 @@ class Survey extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'title', 'description'];
+    protected $fillable = ['user_id', 'title', 'description', 'category'];
 
     public function user(): BelongsTo
     {

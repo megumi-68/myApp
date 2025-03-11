@@ -18,6 +18,16 @@
                 検索
             </button>
         </form>
+        <form action="{{ route('surveys.index') }}" method="GET">
+            <select name="category" class="border border-gray-300 rounded">
+                <option value="">全てのカテゴリー</option>
+                <option value="アウトドア気分">アウトドア気分</option>
+                <option value="インドア気分">インドア気分</option>
+                <option value="グルメな気分">グルメな気分</option>
+                <option value="癒されたい気分">癒されたい気分</option>
+            </select>
+            <button type="submit" class="px-4 py-2 bg-green-400 text-white rounded-lg hover:bg-yellow-600 transition">検索</button>
+        </form>
 
         <h1 class="text-xl font-semibold text-gray-700 mb-4">みんなの過ごし方</h1>
 
@@ -29,6 +39,7 @@
                             {{ $survey->title }}
                         </a>
                     </h2>
+                    <p class="text-gray-600 mt-1">カテゴリー: {{ $survey->category }}</p>
                     <p class="text-gray-600 mt-1">{{ $survey->description }}</p>
                     <p class="text-sm text-gray-500 mt-2">
                         わたしもそうする！: <span class="font-bold text-blue-500">{{ $survey->votes->count() }}</span>

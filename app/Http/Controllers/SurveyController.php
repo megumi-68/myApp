@@ -13,9 +13,13 @@ class SurveyController extends Controller
         $keyword = $request->input('keyword');
 
         $query = Survey::query();
+
         if(!empty($keyword)) {
             $query->where('title', 'LIKE', "%{$keyword}%")
                 ->orWhere('description', 'LIKE', "%{$keyword}%");
+        }
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
         }
 
         $surveys = $query->get();
@@ -44,6 +48,7 @@ class SurveyController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required',
             'description' => 'required|string',
         ],
         [
@@ -54,6 +59,7 @@ class SurveyController extends Controller
         Survey::create([
             'user_id' => Auth::id(),
             'title' => $request->title,
+            'category' => $request->category,
             'description' => $request->description,
         ]);
 
@@ -76,6 +82,7 @@ class SurveyController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required',
             'description' => 'required|string',
         ],
         [
@@ -85,6 +92,7 @@ class SurveyController extends Controller
 
         $survey->update([
             'title' => $request->title,
+            'category' => $request->category,
             'description' => $request->description,
         ]);
 

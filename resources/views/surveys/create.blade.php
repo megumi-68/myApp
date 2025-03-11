@@ -20,6 +20,16 @@
                 class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
         </div>
         <div>
+            <label for="category" class="block text-lg font-medium text-gray-700 dark:text-gray-300">カテゴリー:</label>
+            <select name="category" id="category" required class="border border-gray-300 rounded">
+                <option value="">全てのカテゴリー</option>
+                <option value="アウトドア気分">アウトドア気分</option>
+                <option value="インドア気分">インドア気分</option>
+                <option value="グルメな気分">グルメな気分</option>
+                <option value="癒されたい気分">癒されたい気分</option>
+            </select>
+        </div>
+        <div>
             <label for="description" class="block text-lg font-medium text-gray-700 dark:text-gray-300">説明:</label>
             <textarea name="description" id="description" rows="4"
                 class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white"></textarea>
